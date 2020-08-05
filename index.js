@@ -20,7 +20,7 @@ global.logger = winston.createLogger({
     format: combine(label({ label: 'my-bank-api' }), timestamp(), myFormat),
 });
 
-app.listen(3000, '0.0.0.0', async () => {
+app.listen(process.env.PORT, async () => {
     try {
         await fs.readFile(global.fileName, 'utf8');
         logger.info('API start');
